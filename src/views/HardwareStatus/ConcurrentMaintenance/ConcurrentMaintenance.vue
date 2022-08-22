@@ -25,7 +25,7 @@
           </dt>
           <dd>
             <b-form-checkbox
-              id="battery"
+              id="batteryyy"
               v-model="readyToRemoveState"
               switch
               @change="changeReadyToRemoveState"
