@@ -39,6 +39,50 @@
         </dl>
       </b-col>
     </b-row>
+    <b-row>
+      <b-col md="8" class="d-flex align-items-center justify-content-between">
+        <dl class="mr-3">
+          <dt>
+            {{ $t('pageConcurrentMaintenance.opPanelBase') }}
+          </dt>
+          <dd>
+            <b-form-checkbox
+              id="base"
+              v-model="readyToRemoveOpPanelBaseState"
+              switch
+              @change="changeOpPanelBaseState"
+            >
+              <span v-if="readyToRemoveOpPanelBaseState">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col md="8" class="d-flex align-items-center justify-content-between">
+        <dl class="mr-3">
+          <dt>
+            {{ $t('pageConcurrentMaintenance.opPanelLcd') }}
+          </dt>
+          <dd>
+            <b-form-checkbox
+              id="lcd"
+              v-model="readyToRemoveStateOpPanelLcd"
+              switch
+              @change="changeOpPanelLcdState"
+            >
+              <span v-if="readyToRemoveStateOpPanelLcd">
+                {{ $t('global.status.enabled') }}
+              </span>
+              <span v-else>{{ $t('global.status.disabled') }}</span>
+            </b-form-checkbox>
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
@@ -61,17 +105,49 @@ export default {
         return newValue;
       },
     },
+    readyToRemoveOpPanelBaseState: {
+      get() {
+        return this.$store.getters['concurrent/readyToRemoveOpPanelBase'];
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
+    readyToRemoveStateOpPanelLcd: {
+      get() {
+        return this.$store.getters['concurrent/readyToRemoveOpPanelLcd'];
+      },
+      set(newValue) {
+        return newValue;
+      },
+    },
   },
   created() {
     this.startLoader();
-    this.$store
-      .dispatch('concurrent/getReadyToRemove')
-      .finally(() => this.endLoader());
+    Promise.all([
+      this.$store.dispatch('concurrent/getReadyToRemove'),
+      this.$store.dispatch('concurrent/getOpPanelBase'),
+      this.$store.dispatch('concurrent/getOpPanelLcd'),
+    ]).finally(() => {
+      this.endLoader();
+    });
   },
   methods: {
     changeReadyToRemoveState(state) {
       this.$store
         .dispatch('concurrent/saveReadyToRemoveState', state)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    },
+    changeOpPanelBaseState(state) {
+      this.$store
+        .dispatch('concurrent/saveReadyToRemoveOpPanelBase', state)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
+    },
+    changeOpPanelLcdState(state) {
+      this.$store
+        .dispatch('concurrent/saveReadyToRemoveOpPanelLcd', state)
         .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
