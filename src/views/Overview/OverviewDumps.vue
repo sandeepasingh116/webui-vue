@@ -1,8 +1,6 @@
 <template>
   <overview-card
     :data="dumps"
-    :disabled="dumps.length === 0"
-    :download-button="true"
     :file-name="exportFileNameByDate()"
     :title="$t('pageOverview.dumps')"
     :to="`/logs/dumps`"
