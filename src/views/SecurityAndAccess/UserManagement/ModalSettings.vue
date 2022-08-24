@@ -21,6 +21,9 @@
                   })
                 }}
               </b-form-text>
+              <b-form-text>{{
+                $t('pageUserManagement.modal.zeroLoginAttempts')
+              }}</b-form-text>
               <b-form-input
                 id="lockout-threshold"
                 v-model.number="form.lockoutThreshold"

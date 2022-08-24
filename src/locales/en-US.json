@@ -1477,7 +1477,8 @@
       "unlock": "Unlock",
       "username": "Username",
       "userPassword": "User password",
-      "userUnlockMethod": "User unlock method"
+      "userUnlockMethod": "User unlock method",
+      "zeroLoginAttempts": "If `0`, then account shall never be locked."
     },
     "table": {
       "privilege": "Privilege",
