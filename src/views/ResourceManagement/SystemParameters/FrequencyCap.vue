@@ -76,7 +76,7 @@
               type="submit"
               :disabled="!frequencyRequestCurrentToggle"
               class="mt-3 mb-3"
-              @click="saveFrequencyRequest"
+              @click.prevent="saveFrequencyRequest"
             >
               {{ $t('global.action.save') }}
             </b-button>
