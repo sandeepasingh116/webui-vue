@@ -221,6 +221,7 @@ export default {
           uri: row.uri,
           identifyLed: row.identifyLed,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
   },

@@ -214,6 +214,7 @@ export default {
           uri: row.uri,
           identifyLed: row.identifyLed,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
     // TO DO: remove hasIdentifyLed when the following is merged:

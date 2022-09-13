@@ -44,7 +44,14 @@ const PcieSlotsStore = {
       };
       return await api
         .patch(`${led.uri}/PCIeSlots`, updatedIdentifyLedValue)
-        .then(() => dispatch('getPcieSlotsInfo', { uri: led.uri }))
+        .then(() => {
+          dispatch('getPcieSlotsInfo', { uri: led.uri });
+          if (led.identifyLed) {
+            return i18n.t('pageInventory.toast.successEnableIdentifyLed');
+          } else {
+            return i18n.t('pageInventory.toast.successDisableIdentifyLed');
+          }
+        })
         .catch((error) => {
           dispatch('getPcieSlotsInfo', { uri: led.uri });
           console.log('error', error);

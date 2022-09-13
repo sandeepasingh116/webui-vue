@@ -205,6 +205,7 @@ export default {
           identifyLed: row.identifyLed,
           uri: this.chassis,
         })
+        .then((message) => this.successToast(message))
         .catch(({ message }) => this.errorToast(message));
     },
   },

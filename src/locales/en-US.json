@@ -768,7 +768,9 @@
       "errorEnableSystemAttentionLed": "Error enabling System Attention LED.",
       "errorEnclosureSettings": "Error updating enclosure settings.",
       "infoRemoveAssembly": "Refresh to confirm whether '%{assemblyName}' is ready to  be removed.",
-      "successEnclosureSettings": "Successfully updated enclosure settings."
+      "successEnclosureSettings": "Successfully updated enclosure settings.",
+      "successEnableIdentifyLed": "Successfully enabled Identify LED.",
+      "successDisableIdentifyLed": "Successfully disabled Identify LED."
     }
   },
   "pageKeyClear": {

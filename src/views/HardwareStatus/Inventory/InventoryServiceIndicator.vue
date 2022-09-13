@@ -123,16 +123,22 @@ export default {
   },
   methods: {
     toggleIdentifyLedSwitch(ledState) {
-      this.$store.dispatch('system/changeIdentifyLedState', ledState);
+      this.$store
+        .dispatch('system/changeIdentifyLedState', ledState)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     },
     toggleSystemAttentionLedSwitch(systemLedState) {
-      this.$store.dispatch(
-        'system/changeSystemAttentionLedState',
-        systemLedState
-      );
+      this.$store
+        .dispatch('system/changeSystemAttentionLedState', systemLedState)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     },
     toggleLampTestSwitch(lampTestState) {
-      this.$store.dispatch('system/changeLampTestState', lampTestState);
+      this.$store
+        .dispatch('system/changeLampTestState', lampTestState)
+        .then((message) => this.successToast(message))
+        .catch(({ message }) => this.errorToast(message));
     },
   },
 };

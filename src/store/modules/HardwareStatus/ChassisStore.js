@@ -58,7 +58,14 @@ const ChassisStore = {
       };
       return await api
         .patch(uri, updatedIdentifyLedValue)
-        .then(() => dispatch('getChassisInfo'))
+        .then(() => {
+          dispatch('getChassisInfo');
+          if (led.identifyLed) {
+            return i18n.t('pageInventory.toast.successEnableIdentifyLed');
+          } else {
+            return i18n.t('pageInventory.toast.successDisableIdentifyLed');
+          }
+        })
         .catch((error) => {
           dispatch('getChassisInfo');
           console.log('error', error);
