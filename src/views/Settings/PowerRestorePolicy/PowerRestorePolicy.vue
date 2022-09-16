@@ -42,7 +42,7 @@
       type="submit"
       @click="submitForm"
     >
-      {{ $t('global.action.saveSettings') }}
+      {{ $t('global.action.save') }}
     </b-button>
   </b-container>
 </template>

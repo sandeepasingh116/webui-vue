@@ -205,7 +205,7 @@
             type="submit"
             data-test-id="dateTime-button-saveSettings"
           >
-            {{ $t('global.action.saveSettings') }}
+            {{ $t('global.action.save') }}
           </b-button>
         </b-form-group>
       </b-form>
