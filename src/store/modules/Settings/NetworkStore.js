@@ -59,7 +59,7 @@ const NetworkStore = {
     },
   },
   actions: {
-    async getEthernetData({ commit }) {
+    async getEthernetData({ commit, state }) {
       return await api
         .get('/redfish/v1/Managers/bmc/EthernetInterfaces')
         .then((response) =>
@@ -80,7 +80,14 @@ const NetworkStore = {
           );
 
           commit('setNetworkSettings', ethernetInterfaces);
-          commit('setSelectedInterfaceId', ethernetData[0].Id);
+          let currentInterfaceIndex = 0;
+          if (state.selectedInterfaceIndex) {
+            currentInterfaceIndex = state.selectedInterfaceIndex;
+          }
+          commit(
+            'setSelectedInterfaceId',
+            ethernetData[currentInterfaceIndex].Id
+          );
         })
         .catch((error) => {
           console.log('Network Data:', error);
