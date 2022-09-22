@@ -316,7 +316,8 @@
   "pageDateTime": {
     "alert": {
       "link": "Profile Settings",
-      "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit "
+      "message": "To change how date and time are displayed (either UTC or browser offset) throughout the application, visit ",
+      "messageNtp": "If NTP is selected but an NTP server is not given or the given NTP server is not reachable, then time.google.com will be used."
     },
     "configureSettings": "Configure settings",
     "form": {

@@ -32,10 +32,19 @@
       </b-row>
     </page-section>
     <page-section :section-title="$t('pageDateTime.configureSettings')">
+      <b-row>
+        <b-col md="8" xl="6">
+          <alert variant="info" class="mb-4">
+            <span>
+              {{ $t('pageDateTime.alert.messageNtp') }}
+            </span>
+          </alert>
+        </b-col>
+      </b-row>
       <b-form novalidate @submit.prevent="submitForm">
         <b-form-group
           label="Configure date and time"
-          :disabled="loading"
+          :disabled="loading || !isServerOff()"
           label-sr-only
         >
           <b-form-radio
@@ -311,6 +320,9 @@ export default {
       }
       return this.localOffset();
     },
+    serverStatus() {
+      return this.$store.getters['global/serverStatus'];
+    },
   },
   watch: {
     ntpServers() {
@@ -337,6 +349,9 @@ export default {
     ]).finally(() => this.endLoader());
   },
   methods: {
+    isServerOff() {
+      return this.serverStatus === 'off' ? true : false;
+    },
     emitChange() {
       if (this.$v.$invalid) return;
       this.$v.$reset(); //reset to re-validate on blur
