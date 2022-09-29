@@ -5,6 +5,9 @@
         <dl class="mt-3 mb-3 mr-3 w-75">
           <dt id="frequency-cap-label">
             {{ $t('pageSystemParameters.frequencyCap') }}
+            <info-tooltip
+              :title="$t('pageSystemParameters.frequencyCapHelpText')"
+            />
           </dt>
           <dd id="frequency-cap-description">
             {{ $t('pageSystemParameters.frequencyCapDescription') }}
@@ -88,6 +91,7 @@
 </template>
 
 <script>
+import InfoTooltip from '@/components/Global/InfoTooltip';
 import BVToastMixin from '@/components/Mixins/BVToastMixin';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
@@ -96,6 +100,7 @@ import { requiredIf, between, numeric } from 'vuelidate/lib/validators';
 
 export default {
   name: 'FrequencyCap',
+  components: { InfoTooltip },
   mixins: [DataFormatterMixin, LoadingBarMixin, BVToastMixin, VuelidateMixin],
   props: {
     safeMode: {

@@ -825,6 +825,7 @@
     },
     "frequencyCap": "Frequency cap",
     "frequencyCapDescription": "When enabled, prevents all processors in the system from exceeding the specified maximum operating frequency, in MHz",
+    "frequencyCapHelpText": "If disabled, might require an initial boot to get the max and min frequency to be able to set.",
     "lateralCastOut": "Lateral cast out",
     "lateralCastOutDescription": "Only change this value if instructed by your service provider as it might degrade system performance.",
     "toast": {
