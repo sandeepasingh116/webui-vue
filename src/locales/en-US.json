@@ -200,6 +200,18 @@
     "virtualMedia": "Virtual media"
   },
   "pageCapacityOnDemand": {
+    "absent": "Absent",
+    "deferring": "Deferring",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "inTest": "InTest",
+    "starting": "Starting",
+    "standbyOffline": "Stand by Offline",
+    "standbySpare": "Stand by spare",
+    "unavailableOffline": "Unavailable offline",
+    "updating": "Updating",
+    "qualified": "Qualified",
+    "quiesced": "Quiesced",
     "vetCapabilities": "VET Capabilities",
     "quickLinks": "Quick links",
     "activation": {
@@ -245,6 +257,22 @@
         "message": "If this information is not available, or more information is required, create  a resource dump (using a specific resource selector) from  ",
         "link": "Dumps page."
       }
+    },
+    "setting":{
+      "aixAllowed": "AIX allowed",
+      "aixDiagnostics": "AIX Diagnostics",
+      "activeMemoryExpansion": "Active memory expansion",
+      "activeMemoryMirroring": "Active memory mirroring",
+      "capi": "CAPI",
+      "interactiveCapacity": "IBMi 100% interactive capacity",
+      "ibmiPartitions": "IBMi partitions allowed",
+      "inmiPermitted": "IBMi permitted to use native I/O",
+      "lparCreationAllowed": "LPAR creation allowed",
+      "livePartitionMobility": "Live partition mobility",
+      "perPartition": "Greater than 128 processors per partition",
+      "subprocessorPartitioning": "Subprocessor partitioning",
+      "virtualIoServer": "Virtual I/O server capable",
+      "virtualTiersAllowed": "Virtual tiers allowed"
     },
     "table": {
       "bitCapabilityStatus": "Bit capability status",

@@ -10,10 +10,91 @@
           :fields="fields"
           :empty-text="$t('global.table.emptyMessage')"
         >
+          <template #cell(settings)="{ value }">
+            <div v-if="value == 'AIX allowed'">
+              {{ $t('pageCapacityOnDemand.setting.aixAllowed') }}
+            </div>
+            <div v-else-if="value == 'AIX Diagnostics'">
+              {{ $t('pageCapacityOnDemand.setting.aixDiagnostics') }}
+            </div>
+            <div v-else-if="value == 'Active memory expansion'">
+              {{ $t('pageCapacityOnDemand.setting.activeMemoryExpansion') }}
+            </div>
+            <div v-else-if="value == 'Active memory mirroring'">
+              {{ $t('pageCapacityOnDemand.setting.activeMemoryMirroring') }}
+            </div>
+            <div v-else-if="value == 'CAPI'">
+              {{ $t('pageCapacityOnDemand.setting.capi') }}
+            </div>
+            <div v-else-if="value == 'IBMi 100% interactive capacity'">
+              {{ $t('pageCapacityOnDemand.setting.interactiveCapacity') }}
+            </div>
+            <div v-else-if="value == 'IBMi partitions allowed'">
+              {{ $t('pageCapacityOnDemand.setting.ibmiPartitions') }}
+            </div>
+            <div v-else-if="value == 'IBMi permitted to use native I/O'">
+              {{ $t('pageCapacityOnDemand.setting.inmiPermitted') }}
+            </div>
+            <div v-else-if="value == 'LPAR creation allowed'">
+              {{ $t('pageCapacityOnDemand.setting.lparCreationAllowed') }}
+            </div>
+            <div v-else-if="value == 'Live partition mobility'">
+              {{ $t('pageCapacityOnDemand.setting.livePartitionMobility') }}
+            </div>
+            <div
+              v-else-if="value == 'Greater than 128 processors per partition'"
+            >
+              {{ $t('pageCapacityOnDemand.setting.perPartition') }}
+            </div>
+            <div v-else-if="value == 'Subprocessor partitioning'">
+              {{ $t('pageCapacityOnDemand.setting.subprocessorPartitioning') }}
+            </div>
+            <div v-else-if="value == 'Virtual I/O server capable'">
+              {{ $t('pageCapacityOnDemand.setting.virtualIoServer') }}
+            </div>
+            <div v-else-if="value == 'Virtual tiers allowed'">
+              {{ $t('pageCapacityOnDemand.setting.virtualTiersAllowed') }}
+            </div>
+          </template>
           <!-- Status column -->
           <template #cell(status)="{ value }">
-            <status-icon v-if="value" :status="statusIcon(value)" />
-            {{ value }}
+            <status-icon v-if="value" :status="statusIcon(value)" /><span
+              v-if="value == 'Enabled'"
+              >{{ $t('pageCapacityOnDemand.enabled') }}</span
+            >
+            <span v-else-if="value == 'Disabled'">{{
+              $t('pageCapacityOnDemand.disabled')
+            }}</span>
+            <span v-else-if="value == 'StandbyOffline'">{{
+              $t('pageCapacityOnDemand.standbyOffline')
+            }}</span>
+            <span v-else-if="value == 'StandbySpare'">{{
+              $t('pageCapacityOnDemand.standbySpare')
+            }}</span>
+            <span v-else-if="value == 'InTest'">{{
+              $t('pageCapacityOnDemand.inTest')
+            }}</span>
+            <span v-else-if="value == 'Starting'">{{
+              $t('pageCapacityOnDemand.starting')
+            }}</span>
+            <span v-else-if="value == 'Absent'">{{
+              $t('pageCapacityOnDemand.absent')
+            }}</span>
+            <span v-else-if="value == 'UnavailableOffline'">{{
+              $t('pageCapacityOnDemand.unavailableOffline')
+            }}</span>
+            <span v-else-if="value == 'Deferring'">{{
+              $t('pageCapacityOnDemand.deferring')
+            }}</span>
+            <span v-else-if="value == 'Quiesced'">{{
+              $t('pageCapacityOnDemand.quiesced')
+            }}</span>
+            <span v-else-if="value == 'Updating'">{{
+              $t('pageCapacityOnDemand.updating')
+            }}</span>
+            <span v-else-if="value == 'Qualified'">{{
+              $t('pageCapacityOnDemand.qualified')
+            }}</span>
           </template>
         </b-table>
       </page-section>
