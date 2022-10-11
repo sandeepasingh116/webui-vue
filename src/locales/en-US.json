@@ -384,6 +384,18 @@
     },
     "table": {
       "deconfigurationType": "Deconfiguration Type",
+      "filter": {
+        "byAssociation": "By Association",
+        "error": "Error",
+        "fatal": "Fatal",
+        "fcoDeconfigured": "FCO-Deconfigured",
+        "invalid": "Invalid",
+        "manual": "Manual",
+        "none": "None",
+        "predictive": "Predictive",
+        "recovered": "Recovered",
+        "unknown": "Unknown"
+      },
       "functionalState": "Functional State",
       "id": "Id",
       "locationCode": "Location Code",
@@ -491,7 +503,13 @@
       "dumpType": "Dump type",
       "id": "ID",
       "searchDumps": "Search dumps",
-      "size": "Size"
+      "size": "Size",
+      "filter": {
+        "bmcDumpEntry": "BMC Dump Entry",
+        "hostbootDumpEntry": "Hostboot Dump Entry",
+        "resourceDumpEntry": "Resource Dump Entry",
+        "systemDumpEntry": "System Dump Entry"
+      }
     },
     "toast": {
       "errorDeleteDump": "Error deleting %{count} dump. | Error deleting %{count} dumps.",

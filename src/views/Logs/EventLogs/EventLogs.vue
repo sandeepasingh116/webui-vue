@@ -378,12 +378,19 @@ export default {
         {
           key: 'severity',
           label: this.$t('pageEventLogs.table.severity'),
-          values: ['OK', 'Warning', 'Critical'],
+          values: [
+            this.$t('pageEventLogs.table.severityValues.ok'),
+            this.$t('pageEventLogs.table.severityValues.warning'),
+            this.$t('pageEventLogs.table.severityValues.critical'),
+          ],
         },
         {
           key: 'filterByStatus',
           label: this.$t('pageEventLogs.table.status'),
-          values: ['Resolved', 'Unresolved'],
+          values: [
+            this.$t('pageEventLogs.resolved'),
+            this.$t('pageEventLogs.unresolved'),
+          ],
         },
       ],
       expandRowLabel,

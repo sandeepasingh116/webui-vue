@@ -300,7 +300,10 @@ export default {
         {
           key: 'filterByStatus',
           label: this.$t('pageDeconfigurationRecords.table.status'),
-          values: ['Resolved', 'Unresolved'],
+          values: [
+            this.$t('pageEventLogs.resolved'),
+            this.$t('pageEventLogs.unresolved'),
+          ],
         },
       ],
       activeFilters: [],
