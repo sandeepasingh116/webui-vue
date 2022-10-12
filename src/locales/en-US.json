@@ -218,6 +218,7 @@
     "activation": {
       "alert": "PHYP must be in standby or running to activate.",
       "helperText": "Must be 34 characters. To obtain a new access key, visit ",
+      "helperTextIps": "To obtain a new access key, please call the customer service hotline 400-940-0860",
       "placeholder": "Enter activation code",
       "sectionTitle": "Activation",
       "srLabel": "Activation code",
@@ -392,10 +393,10 @@
     "configured": "Configured",
     "deconfigure": "Deconfigure",
     "deconfigured": "Deconfigured",
-    "description": "View or change the state of all hardware resources. To view details about each deconfigured resource, visit ",
+    "description": "View or change the state of all hardware resources.",
     "fcoSetting": "FCO Setting",
     "initiateDump": "Initiate dump",
-    "link": "Deconfiguration records.",
+    "link": " To view details of deconfigured resource, visit Deconfiguration records.",
     "memoryDimms": "Memory DIMMs",
     "node": "Node(s)",
     "overview": "Overview",
@@ -444,8 +445,9 @@
     "resolved": "Resolved",
     "unresolved": "Unresolved",
     "pageDescription": {
-      "description": "Select a record to view or export deconfiguration details to a .txt file. To view and manually change the configuration state of all hardware resources visit ",
-      "link": "Hardware deconfiguration."
+      "description": "Select a record to view or export deconfiguration details to a .txt file.",
+      "link": "To view or change the configuration state visit Hardware deconfiguration."
+
     },
     "modal": {
       "title": "Clear all records",
@@ -948,6 +950,7 @@
     }
   },
   "pageLogin": {
+    "asmi": "Advanced System Management Interface (ASMI)",
     "dateAndTime": "Date and time",
     "language": "Language",
     "logIn": "Log in",
