@@ -394,7 +394,7 @@
     "configured": "Configured",
     "deconfigure": "Deconfigure",
     "deconfigured": "Deconfigured",
-    "description": "View or change the state of all hardware resources. To view details about each deconfigured resource, visit",
+    "description": "View or change the state of all hardware resources. To view details about each deconfigured resource, visit ",
     "descriptionText": "View or change the state of all hardware resources.",
     "fcoSetting": "FCO Setting",
     "initiateDump": "Initiate dump",
@@ -448,7 +448,7 @@
     "resolved": "Resolved",
     "unresolved": "Unresolved",
     "pageDescription": {
-      "description": "Select a record to view or export deconfiguration details to a .txt file.To view and manually change the configuration state of all hardware resources visit",
+      "description": "Select a record to view or export deconfiguration details to a .txt file.To view and manually change the configuration state of all hardware resources visit ",
       "decriptionText": "Select a record to view or export deconfiguration details to a .txt file.",
       "link": "Hardware deconfiguration.",
       "linkText": "To view or change the configuration state visit Hardware deconfiguration."
