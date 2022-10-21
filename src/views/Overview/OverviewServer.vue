@@ -28,11 +28,13 @@
           <dd v-else-if="operatingMode === 'Normal'">
             {{ $t('pageOverview.normal') }}
           </dd>
-          <dt>{{ $t('pageOverview.serviceLogin') }}</dt>
-          <dd>
-            <status-icon :status="serviceLoginStatusIcon" />
-            {{ dataFormatter(serviceLogin) }}
-          </dd>
+          <div v-if="!isReadOnlyUser">
+            <dt>{{ $t('pageOverview.serviceLogin') }}</dt>
+            <dd>
+              <status-icon :status="serviceLoginStatusIcon" />
+              {{ dataFormatter(serviceLogin) }}
+            </dd>
+          </div>
         </dl>
       </b-col>
     </b-row>
@@ -102,6 +104,9 @@ export default {
       },
       assetTag() {
         return this.$store.getters['global/assetTag'];
+      },
+      isReadOnlyUser() {
+        return this.$store.getters['global/isReadOnlyUser'];
       },
     }),
     serviceLoginStatusIcon() {
