@@ -212,7 +212,13 @@
           }}
         </b-button>
         <b-collapse id="collapse-role-table" class="mt-3">
-          <b-table stacked="sm" hover :items="serverFirmwareItems" caption-top>
+          <b-table
+            stacked="sm"
+            hover
+            :items="serverFirmwareItems"
+            :fields="fields"
+            caption-top
+          >
             <template #table-caption>
               {{ $t('pageServerPowerOperations.biosSettings.serverFirmware') }}
             </template>
@@ -221,6 +227,7 @@
             stacked="sm"
             hover
             :items="defaultPartitionItems"
+            :fields="fields"
             caption-top
           >
             <template #table-caption>
@@ -230,13 +237,25 @@
               ({{ $t('pageServerPowerOperations.biosSettings.nonHMCManaged') }})
             </template>
           </b-table>
-          <b-table stacked="sm" hover :items="aixPartitionItems" caption-top>
+          <b-table
+            stacked="sm"
+            hover
+            :items="aixPartitionItems"
+            :fields="fields"
+            caption-top
+          >
             <template #table-caption>
               {{ $t('pageServerPowerOperations.biosSettings.aixLinux') }}
               ({{ $t('pageServerPowerOperations.biosSettings.nonHMCManaged') }})
             </template>
           </b-table>
-          <b-table stacked="sm" hover :items="ibmiItems" caption-top>
+          <b-table
+            stacked="sm"
+            hover
+            :items="ibmiItems"
+            :fields="fields"
+            caption-top
+          >
             <template #table-caption>
               {{ $t('pageServerPowerOperations.biosSettings.ibmIPartition') }}
               ({{ $t('pageServerPowerOperations.biosSettings.nonHMCManaged') }})
@@ -267,6 +286,18 @@ export default {
       selectedOperatingMode: '',
       powerRestorePolicy: this.$store.getters[
         'serverBootSettings/powerRestorePolicyValue'
+      ],
+      fields: [
+        {
+          key: 'setting',
+          label: this.$t('pagePower.tableRoles.setting'),
+          sortable: false,
+        },
+        {
+          key: 'description',
+          label: this.$t('pagePower.tableRoles.description'),
+          sortable: false,
+        },
       ],
       serverFirmwareItems: [
         {
