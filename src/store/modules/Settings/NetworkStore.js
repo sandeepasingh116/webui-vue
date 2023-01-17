@@ -267,17 +267,11 @@ const NetworkStore = {
         )
         .then(dispatch('getEthernetData'))
         .then(() => {
-          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
-            setting: i18n.t('pageNetwork.ipv4'),
-          });
+          return i18n.t('pageNetwork.toast.successDeletingIpv4Server');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
-              setting: i18n.t('pageNetwork.ipv4'),
-            })
-          );
+          throw new Error(i18n.t('pageNetwork.toast.errorDeletingIpv4Server'));
         });
     },
     async saveHostname({ state, dispatch }, hostname) {
@@ -313,17 +307,11 @@ const NetworkStore = {
         )
         .then(dispatch('getEthernetData'))
         .then(() => {
-          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
-            setting: i18n.t('pageNetwork.dns'),
-          });
+          return i18n.t('pageNetwork.toast.successAddingDnsServer');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
-              setting: i18n.t('pageNetwork.dns'),
-            })
-          );
+          throw new Error(i18n.t('pageNetwork.toast.errorAddingDnsServer'));
         });
     },
     async editDnsAddress({ dispatch, state }, dnsTableData) {
@@ -334,17 +322,11 @@ const NetworkStore = {
         )
         .then(dispatch('getEthernetData'))
         .then(() => {
-          return i18n.t('pageNetwork.toast.successSaveNetworkSettings', {
-            setting: i18n.t('pageNetwork.dns'),
-          });
+          return i18n.t('pageNetwork.toast.successDeletingDnsServer');
         })
         .catch((error) => {
           console.log(error);
-          throw new Error(
-            i18n.t('pageNetwork.toast.errorSaveNetworkSettings', {
-              setting: i18n.t('pageNetwork.dns'),
-            })
-          );
+          throw new Error(i18n.t('pageNetwork.toast.errorDeletingDnsServer'));
         });
     },
   },

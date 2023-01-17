@@ -1078,7 +1078,13 @@
     },
     "toast": {
       "errorSaveNetworkSettings": "Error updating %{setting} settings.",
-      "successSaveNetworkSettings": "Successfully updated %{setting} settings."
+      "errorAddingDnsServer": "Error adding DNS server.",
+      "errorDeletingDnsServer": "Error deleting DNS server.",
+      "errorDeletingIpv4Server": "Error deleting IPv4 server.",
+      "successSaveNetworkSettings": "Successfully updated %{setting} settings.",
+      "successAddingDnsServer": "Successfully added DNS server.",
+      "successDeletingDnsServer": "Successfully deleted DNS server.",
+      "successDeletingIpv4Server": "Successfully deleted IPv4 server."
     }
   },
   "pageOverview": {
