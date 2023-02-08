@@ -38,7 +38,7 @@
             <img
               width="50px"
               class="header-logo"
-              src="@/assets/images/logo-header.svg"
+              :src="getImageUrl()"
               :alt="altLogo"
             />
             <span class="pl-1 nav-tags header-text">{{ headerText }}</span>
@@ -238,6 +238,9 @@ export default {
     setFocus(event) {
       event.preventDefault();
       this.$root.$emit('skip-navigation');
+    },
+    getImageUrl() {
+      return location.origin + location.pathname + 'img/logo-header.svg';
     },
   },
 };

@@ -4,11 +4,7 @@
       <div class="login-main">
         <div>
           <div class="login-brand mb-5">
-            <img
-              width="90px"
-              src="@/assets/images/login-company-logo.svg"
-              :alt="altLogo"
-            />
+            <img width="90px" :src="getImageUrl()" :alt="altLogo" />
           </div>
           <h1 v-if="customizableGuiName" class="h3 mb-5">
             {{ customizableGuiName }}
@@ -33,6 +29,11 @@ export default {
       altLogo: process.env.VUE_APP_COMPANY_NAME || 'OpenBMC',
       customizableGuiName: process.env.VUE_APP_GUI_NAME || '',
     };
+  },
+  methods: {
+    getImageUrl() {
+      return location.origin + location.pathname + 'img/login-company-logo.svg';
+    },
   },
 };
 </script>
