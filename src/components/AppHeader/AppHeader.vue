@@ -240,7 +240,10 @@ export default {
       this.$root.$emit('skip-navigation');
     },
     getImageUrl() {
-      return location.origin + location.pathname + 'img/logo-header.svg';
+      let pathName = location.pathname !== '/' ? location.pathname : '';
+      return (
+        location.origin + pathName + require('@/assets/images/logo-header.svg')
+      );
     },
   },
 };

@@ -32,7 +32,12 @@ export default {
   },
   methods: {
     getImageUrl() {
-      return location.origin + location.pathname + 'img/login-company-logo.svg';
+      let pathName = location.pathname !== '/' ? location.pathname : '';
+      return (
+        location.origin +
+        pathName +
+        require('@/assets/images/login-company-logo.svg')
+      );
     },
   },
 };

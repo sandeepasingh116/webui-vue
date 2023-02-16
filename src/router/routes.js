@@ -34,7 +34,7 @@ import Certificates from '@/views/SecurityAndAccess/Certificates';
 import VirtualMedia from '@/views/Operations/VirtualMedia';
 import Memory from '@/views/ResourceManagement/Memory';
 import Power from '@/views/ResourceManagement/Power';
-import SystemParameters from '@/views/ResourceManagement/systemParameters';
+import SystemParameters from '@/views/ResourceManagement/SystemParameters';
 import SnmpAlerts from '@/views/Settings/SnmpAlerts';
 import i18n from '@/i18n';
 
