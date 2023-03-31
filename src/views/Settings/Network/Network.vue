@@ -1,6 +1,9 @@
 <template>
   <b-container fluid="xl">
-    <page-title :description="$t('pageNetwork.pageDescription')" />
+    <page-title
+      :title="$t('appPageTitle.network')"
+      :description="$t('pageNetwork.pageDescription')"
+    />
     <!-- Global settings for all interfaces -->
     <network-global-settings />
     <!-- Interface tabs -->
@@ -134,11 +137,6 @@ export default {
       .finally(() => this.endLoader());
   },
   methods: {
-    // isIpv6Valid() {
-    //   const ipv6 = this.network[this.tabIndex].ipv6;
-    //   if (ipv6 == 'undefined' || 'null') return false;
-    //   else return true;
-    // },
     getModalInfo() {
       this.defaultGateway = this.$store.getters['network/networkSettings'][
         this.tabIndex
