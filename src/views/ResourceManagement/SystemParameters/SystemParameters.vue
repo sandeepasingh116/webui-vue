@@ -20,6 +20,7 @@
     <lateral-cast-out :is-server-off="isServerOff" />
     <frequency-cap :is-server-off="isServerOff" />
     <aggressive-prefetch :is-server-off="isServerOff" />
+    <runtime-processor-diagnostic :is-server-off="isServerOff" />
   </b-container>
 </template>
 
@@ -31,6 +32,7 @@ import Alert from '@/components/Global/Alert';
 import LateralCastOut from './LateralCastOut';
 import FrequencyCap from './FrequencyCap';
 import AggressivePrefetch from './AggressivePrefetch';
+import RuntimeProcessorDiagnostic from './RuntimeProcessorDiagnostic';
 
 export default {
   name: 'SystemParameters',
@@ -40,6 +42,7 @@ export default {
     LateralCastOut,
     FrequencyCap,
     AggressivePrefetch,
+    RuntimeProcessorDiagnostic,
   },
   mixins: [LoadingBarMixin, BVToastMixin],
   computed: {
@@ -55,6 +58,11 @@ export default {
     Promise.all([
       this.$store.dispatch('systemParameters/getLateralCastOutMode'),
       this.$store.dispatch('systemParameters/getAggressivePrefetch'),
+      this.$store.dispatch('systemParameters/getImmediateTestRequested'),
+      this.$store.dispatch('systemParameters/getGardOnError'),
+      this.$store.dispatch('systemParameters/getRpdPolicyOptions'),
+      this.$store.dispatch('systemParameters/getRpdPolicy'),
+      this.$store.dispatch('systemParameters/getRpdScheduledRun'),
     ]).finally(() => this.endLoader());
   },
 };
