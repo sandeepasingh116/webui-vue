@@ -61,8 +61,12 @@ export default {
       this.$store.dispatch('systemParameters/getImmediateTestRequested'),
       this.$store.dispatch('systemParameters/getGardOnError'),
       this.$store.dispatch('systemParameters/getRpdPolicyOptions'),
+      this.$store.dispatch('systemParameters/getRpdFeatureOptions'),
       this.$store.dispatch('systemParameters/getRpdPolicy'),
+      this.$store.dispatch('systemParameters/getRpdPolicyCurrent'),
+      this.$store.dispatch('systemParameters/getRpdFeature'),
       this.$store.dispatch('systemParameters/getRpdScheduledRun'),
+      this.$store.dispatch('systemParameters/getRpdScheduledRunDuration'),
     ]).finally(() => this.endLoader());
   },
 };
