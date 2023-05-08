@@ -13,6 +13,7 @@ const systemParametersStore = {
     immediateTestRequested: false,
     gardOnError: false,
     rpdPolicy: null,
+    pvmRpdPolicy: null,
     rpdPolicyCurrent: null,
     rpdFeature: null,
     rpdScheduledRun: null,
@@ -31,6 +32,7 @@ const systemParametersStore = {
     immediateTestRequested: (state) => state.immediateTestRequested,
     gardOnError: (state) => state.gardOnError,
     rpdPolicy: (state) => state.rpdPolicy,
+    pvmRpdPolicy: (state) => state.pvmRpdPolicy,
     rpdPolicyCurrent: (state) => state.rpdPolicyCurrent,
     rpdFeature: (state) => state.rpdFeature,
     rpdPolicyOptions: (state) => state.rpdPolicyOptions,
@@ -51,6 +53,8 @@ const systemParametersStore = {
       (state.immediateTestRequested = immediateTestRequested),
     setGardOnError: (state, gardOnError) => (state.gardOnError = gardOnError),
     setRpdPolicy: (state, rpdPolicy) => (state.rpdPolicy = rpdPolicy),
+    setPvmRpdPolicy: (state, pvmRpdPolicy) =>
+      (state.pvmRpdPolicy = pvmRpdPolicy),
     setRpdPolicyCurrent: (state, rpdPolicyCurrent) =>
       (state.rpdPolicyCurrent = rpdPolicyCurrent),
     setRpdFeature: (state, rpdFeature) => (state.rpdFeature = rpdFeature),
@@ -91,6 +95,7 @@ const systemParametersStore = {
           );
           let rpdPolicyValue = rpdPolicy[0].CurrentValue;
           commit('setRpdPolicy', rpdPolicyValue);
+          commit('setPvmRpdPolicy', rpdPolicyValue);
         })
         .catch((error) => console.log(error));
     },
@@ -245,7 +250,7 @@ const systemParametersStore = {
           );
         });
     },
-    async saveRpdPolicy({ commit }, rpdPolicyValue) {
+    async saveRpdPolicy({ commit, dispatch }, rpdPolicyValue) {
       const updatedRpdPolicyValue = {
         Attributes: { pvm_rpd_policy: rpdPolicyValue },
       };
@@ -259,6 +264,7 @@ const systemParametersStore = {
             'setRpdPolicy',
             updatedRpdPolicyValue.Attributes.pvm_rpd_policy
           );
+          dispatch('getRpdPolicy');
           return i18n.t('pageSystemParameters.toast.successSavingRpdPolicy');
         })
         .catch((error) => {

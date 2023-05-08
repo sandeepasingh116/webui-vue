@@ -211,6 +211,7 @@ export default {
       'rpdPolicyOptions',
       'rpdFeature',
       'rpdFeatureOptions',
+      'pvmRpdPolicy',
     ]),
     selectedOption: {
       get() {
@@ -233,7 +234,7 @@ export default {
       },
     },
     isRpdPolicyScheduled() {
-      return this.selectedOption === 'Scheduled';
+      return this.pvmRpdPolicy === 'Scheduled';
     },
     options() {
       return this.rpdPolicyOptions.map((option) => ({
