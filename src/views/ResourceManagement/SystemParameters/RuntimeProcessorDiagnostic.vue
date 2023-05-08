@@ -138,29 +138,6 @@
     <b-row>
       <b-col class="d-flex align-items-center justify-content-between">
         <dl class="mt-3 mr-3 w-75">
-          <dt id="immediate-test-requested-label">
-            {{ $t('pageSystemParameters.immediateTestRequested') }}
-          </dt>
-          <dd id="immediate-test-requested-description">
-            {{ $t('pageSystemParameters.immediateTestRequestedDescription') }}
-          </dd>
-        </dl>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-button
-        variant="primary"
-        type="submit"
-        class="ml-3"
-        :disabled="immediateTestRequestedState || isRpdFeatureCurrentDisabled"
-        @click="updateImmediateTestRequestedState()"
-      >
-        {{ $t('pageSystemParameters.runNow') }}
-      </b-button>
-    </b-row>
-    <b-row>
-      <b-col class="d-flex align-items-center justify-content-between">
-        <dl class="mt-3 mr-3 w-75">
           <dt id="gard-on-error-label">
             {{ $t('pageSystemParameters.gardOnError') }}
           </dt>
@@ -183,6 +160,29 @@
           <span v-else>{{ $t('global.status.disabled') }}</span>
         </b-form-checkbox>
       </b-col>
+    </b-row>
+    <b-row>
+      <b-col class="d-flex align-items-center justify-content-between">
+        <dl class="mt-3 mr-3 w-75">
+          <dt id="immediate-test-requested-label">
+            {{ $t('pageSystemParameters.immediateTestRequested') }}
+          </dt>
+          <dd id="immediate-test-requested-description">
+            {{ $t('pageSystemParameters.immediateTestRequestedDescription') }}
+          </dd>
+        </dl>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-button
+        variant="primary"
+        type="submit"
+        class="ml-3"
+        :disabled="immediateTestRequestedState || isRpdFeatureCurrentDisabled"
+        @click="updateImmediateTestRequestedState()"
+      >
+        {{ $t('pageSystemParameters.runNow') }}
+      </b-button>
     </b-row>
   </div>
 </template>
@@ -249,7 +249,7 @@ export default {
     },
     isRpdFeatureCurrentDisabled() {
       return (
-        this.$store.getters['systemParameters/rpdPolicyCurrent'] === 'Enabled'
+        this.$store.getters['systemParameters/rpdPolicyCurrent'] === 'Disabled'
       );
     },
     aggressivePrefetchState: {

@@ -202,7 +202,6 @@ const systemParametersStore = {
           const minutes = Math.floor((RpdScheduledRunValue % 3600) / 60);
           const hourString = hours.toString().padStart(2, '0');
           const minuteString = minutes.toString().padStart(2, '0');
-          console.log('time', `${hourString}:${minuteString}`);
           commit('setRpdScheduledRun', `${hourString}:${minuteString}`);
         })
         .catch((error) => console.log(error));
