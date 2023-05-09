@@ -120,7 +120,7 @@ const systemParametersStore = {
         )
         .then(({ data: { RegistryEntries } }) => {
           const rpdFeature = RegistryEntries.Attributes.filter(
-            (Attribute) => Attribute.AttributeName == 'pvm_rpd_feature_current'
+            (Attribute) => Attribute.AttributeName == 'pvm_rpd_feature'
           );
           let rpdFeatureValue = rpdFeature[0].CurrentValue;
           commit('setRpdFeature', rpdFeatureValue);
@@ -358,11 +358,13 @@ const systemParametersStore = {
         )
         .then(() => {
           commit('setRpdScheduledRun', payload.startTime);
-          return i18n.t('pageMemory.toast.success');
+          return i18n.t('pageSystemParameters.toast.successSavingRpdRun');
         })
         .catch((error) => {
           console.log('error', error);
-          throw new Error(i18n.t('pageMemory.toast.error'));
+          throw new Error(
+            i18n.t('pageSystemParameters.toast.errorSavingRpdRun')
+          );
         });
     },
     async getLateralCastOutMode({ commit }) {
